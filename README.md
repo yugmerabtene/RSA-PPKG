@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-Ce script Python vous permet de générer une paire de clés RSA, de calculer leur empreinte (fingerprint) en utilisant l'algorithme de hachage SHA-256, et de transférer les clés vers un serveur FTP distant.
+Ce script génére une paire de clés RSA, de calculer leur empreinte (fingerprint) en utilisant l'algorithme de hachage SHA-256, et de transférer les clés vers un serveur FTP distant.
 
 ## Table des matières
 
