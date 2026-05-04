@@ -1,56 +1,62 @@
-# Générateur de Clés RSA et Transfert vers un Serveur FTP
+# Générateur de Clés RSA et Transfert FTP
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-Ce script génére une paire de clés RSA, de calculer leur empreinte (fingerprint) en utilisant l'algorithme de hachage SHA-256, et de transférer les clés vers un serveur FTP distant.
+Ce script génère une paire de clés RSA, calcule leur empreinte avec SHA-256, et transfère les clés vers un serveur FTP.
 
 ## Table des matières
 
-- [Introduction](#introduction)
+- [Installation](#installation)
+- [Configuration](#configuration)
 - [Exécution](#exécution)
-- [Configuration FTP](#configuration-ftp)
-- [Empreinte des clés](#empreinte-des-clés)
-- [Contribuer](#contribuer)
+- [Fonctionnalités](#fonctionnalités)
 - [License](#license)
 
-## Introduction
+## Installation
 
-Ce script utilise les bibliothèques Python suivantes :
-- `os` pour la gestion des fichiers et la suppression locale des clés après le transfert.
-- `ftplib` pour établir une connexion FTP avec un serveur distant et transférer les clés.
-- `hashlib` pour calculer l'empreinte (fingerprint) des clés en utilisant l'algorithme de hachage SHA-256.
-- `Crypto` pour générer une paire de clés RSA sécurisée.
+```bash
+git clone https://github.com/yugmerabtene/RSA-PPKG.git
+cd RSA-PPKG
+pip install -r requirements.txt
+```
+
+## Configuration
+
+Créez un fichier `.env` à partir de l'exemple :
+
+```bash
+cp .env.example .env
+```
+
+Puis remplissez les informations de connexion FTP :
+
+```
+FTP_HOST=votre-serveur-ftp.com
+FTP_USER=votre_utilisateur
+FTP_PASS=votre_mot_de_passe
+```
 
 ## Exécution
 
-Pour exécuter le script, assurez-vous d'avoir Python 3.8 ou une version ultérieure installée. Suivez ces étapes :
+```bash
+python rsa_keygen.py
+```
 
-1. Clonez ce dépôt sur votre machine :
+Le script :
+1. Génère une paire de clés RSA 2048 bits
+2. Affiche l'empreinte SHA-256 de chaque clé
+3. Transfère les clés via FTP
+4. Supprime les fichiers locaux
 
-    ```bash
-    git clone https://github.com/yugmerabtene/RSA-PPKG.git
-    ```
+## Fonctionnalités
 
-2. Accédez au répertoire du projet :
+- Génération de clés RSA sécurisées
+- Calcul d'empreinte SHA-256
+- Transfert FTP sécurisé (config via variables d'environnement)
+- Nettoyage automatique des fichiers locaux
+- Gestion basique des erreurs
 
-    ```bash
-    cd RSA-PPKG
-    ```
+## License
 
-3. Exécutez le script :
-
-    ```bash
-    python nom_du_script.py
-    ```
-
-Le script générera une paire de clés RSA, calculera leur empreinte, les transférera vers le serveur FTP configuré, puis supprimera les fichiers locaux des clés.
-
-## Configuration FTP
-
-Pour configurer la connexion FTP, ouvrez le script et définissez les variables suivantes :
-
-```python
-FTP_HOST = ""  # Adresse du serveur FTP
-FTP_USER = ""  # Nom d'utilisateur FTP
-FTP_PASS = ""  # Mot de passe FTP
+MIT
